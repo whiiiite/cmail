@@ -25,7 +25,15 @@ namespace cmail
 
         static void Main(string[] args)
         {
-            if (args[0] == "help")
+            if(args.Length == 0)
+            {
+                PrintLogo();
+                Console.WriteLine("It seems that you just type cmail without any arguments :3");
+                WriteLineGreen("[!]Tip: type 'cmail help' for see help");
+                return;
+            }
+
+            if (args.Length >= 1 && args[0] == "help")
             {
                 PrintHelp();
                 return;
@@ -311,6 +319,15 @@ namespace cmail
             Console.WriteLine("-i <true or false> - is body is html format or not");
             Console.WriteLine(@"-t <email0,email1,email2...> or <email> - 
 send to option take single email or list separated by comma ',' (recommended without spaces between)");
+        }
+
+        private static void PrintLogo()
+        {
+            Console.WriteLine("////////////////////////////////////////////////////////");
+            Console.WriteLine("//                                                    //");
+            Console.WriteLine("//                    CMAIL SERVICE                   //");
+            Console.WriteLine("//                                                    //");
+            Console.WriteLine("////////////////////////////////////////////////////////");
         }
     }
 }
